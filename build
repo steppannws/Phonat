@@ -36,8 +36,12 @@ elif [ "$1" == "git" ]; then
 		mkdir android_source
 	fi
 
-	if [ ! -d android_source ]; then
-		mkdir android_source
+	if [ ! -d android_source/app ]; then
+		mkdir android_source/app
+	fi
+
+	if [ ! -d android_source/app/src ]; then
+		mkdir android_source/app/src
 	fi
 
 	cp -R android/app/src/main android_source/app/src/
