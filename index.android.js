@@ -1,74 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+'use strict';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View, 
-  Button,
-  Linking
-} from 'react-native';
+import React from 'react';
+import { AppRegistry, AsyncStorage } from 'react-native';
+// import Storage from 'react-native-storage';
+import Phonat from './app/Phonat';
+// import User from './app/user/User';
+// import './app/ReactotronConfig'
 
-import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
+/*var storage = new Storage({
+    size: 1000,    
+    // expire time, default 1 day(1000 * 3600 * 24 secs) 
+    storageBackend: AsyncStorage,
+    defaultExpires: null,
+    enableCache: true,
+    sync : {
+    }
+});*/
 
-export default class Phonat extends Component {
-
-  open() {
-    // Linking.openURL('tel:911').catch(err => console.error('An error occurred', err));
-
-    IntentLauncher.openApp("com.humber");
-    return;
-    IntentLauncher.startActivity({
-      // action: 'android.settings.APPLICATION_DETAILS_SETTINGS',
-      // action: 'android.intent.action.CALL',
-      action: 'android.intent.action.VIEW',
-      flags: 4096,
-      // action: 'android.',
-      // data: 'package:com.example'
-      // category: 'android.intent.category.LAUNCHER',
-      data: 'package:com.humber'
-    })
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to !
-        </Text>
-        <Button
-          onPress={() => {this.open()}}
-          title="SOS"
-          color="#FF3300"
-          accessibilityLabel="Open"
-        />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+// global.storage = storage;
 
 AppRegistry.registerComponent('Phonat', () => Phonat);
