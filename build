@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+DATE=`date +%Y-%m-%d:%H:%M:%S`
+
+if [ "$1" == "release" ]; then
+	echo "Building release 🔧"
+
+	rm -fr $TMPDIR/react-*
+	npm cache clean
+	cd android
+	bash ./gradlew assembleRelease
+	if [ ! -d ../release ]; then
+		mkdir ../release
+	fi
+	cp -a app/build/outputs/apk/app-release.apk ../release/"$DATE apk-release.apk"
+	open ../release
+	echo 'DONE 🎉'
+
+elif [ "$1" == "debug" ]; then
+	echo "Building debug 🔧"
+
+	rm -fr $TMPDIR/react-*
+	npm cache clean
+	cd android
+	bash ./gradlew assembleDebug
+	if [ ! -d ../debug ]; then
+		mkdir ../debug
+	fi
+	cp -a app/build/outputs/apk/app-debug.apk ../debug/"$DATE apk-debug.apk"
+	open ../debug
+	echo 'DONE 🎉'
+elif [ "$1" == "git" ]; then
+	echo 'Copy src files and commit to GitHub 🐙  🚀'
+
+	if [ ! -d android/app/src/ ]; then
+		mkdir android/app/src/
+	fi
+
+	cp -R android/app/src/main android_source/app/src/
+	#cp -R android/keystores android_source
+	cp android/settings.gradle android_source
+	cp android/gradle.properties android_source
+	cp android/app/build.gradle android_source/app/build.gradle
+
+	git add -A
+	git commit
+	if [ "$2" ]; then
+		git push origin $2
+	fi
+
+	echo 'DONE 🎉'
+else
+	echo "- Please chose build type: release or debug"
+fi
+
+
+
+
+
+

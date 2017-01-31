@@ -14,13 +14,13 @@ import {
 import {Router, Scene, Route, Schema, Animations, TabBar, Actions, Reducer, Modal} from 'react-native-router-flux';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import DeviceInfo from 'react-native-device-info';
-// import Utils from './utils/Utils';
+import Utils from './utils/Utils';
 // import PushNotification from 'react-native-push-notification';
 // import {getServerUrl} from './data/LocalStorageResolver'
 
 //Views
 import SplashView from './views/SplashView';
-import FaqView from './views/FaqView';
+import WelcomeView from './views/WelcomeView';
 
 // import User from './user/User';
 // import api from './data/api';
@@ -44,12 +44,6 @@ const reducerCreate = params=>{
 export default class Phonat extends React.Component {
     
     componentWillMount() {
-        Utils.initAnalytic();
-
-        getServerUrl().then((serverUrlData) => {
-            if(serverUrlData == null)
-              api.setServerUrl(serverUrlData.url);
-        });
     }
     
     componentDidMount() {
@@ -70,6 +64,7 @@ export default class Phonat extends React.Component {
                     backAndroidHandler={this.backAndroidHandler} >
                     <Scene key="root">
                         <Scene key="splash" component={SplashView} wrapRouter={true} title="" hideNavBar={true} initial={true}/>
+                        <Scene key="welcome" component={WelcomeView} wrapRouter={true} title="" hideNavBar={true}/>
                         {/*
                         <Scene key="start" component={StartView} wrapRouter={true} title="" hideNavBar={true} />
                         <Scene key="register">
