@@ -32,8 +32,12 @@ elif [ "$1" == "debug" ]; then
 elif [ "$1" == "git" ]; then
 	echo 'Copy src files and commit to GitHub 🐙  🚀'
 
-	if [ ! -d android/app/src/ ]; then
-		mkdir android/app/src/
+	if [ ! -d android_source ]; then
+		mkdir android_source
+	fi
+
+	if [ ! -d android_source ]; then
+		mkdir android_source
 	fi
 
 	cp -R android/app/src/main android_source/app/src/
