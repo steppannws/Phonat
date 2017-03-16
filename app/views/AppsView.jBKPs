@@ -1,0 +1,80 @@
+/**
+ * @flow
+ */
+
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View, 
+  Button,
+  Linking
+} from 'react-native';
+
+import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher';
+// import { Utils } from 'react-native-zxz-utils';
+// import RNReactNativeZxzUtils from 'react-native-zxz-utils';
+
+// import Utils from RNReactNativeZxzUtils;
+
+export default class AppsView extends Component {
+
+  // componentWillUnmount() {
+  //   console.warn('INIT');
+  // }
+
+  open() {
+    // Linking.openURL('tel:911').catch(err => console.error('An error occurred', err));
+
+    // console.warn("OOOK" + Math.random());
+
+    // IntentLauncher.openApp("com.humber");
+    // return;
+    IntentLauncher.startActivity({
+      // action: 'android.settings.APPLICATION_DETAILS_SETTINGS',
+      // action: 'android.intent.action.CALL',
+      action: 'android.intent.action.VIEW',
+      flags: 4096,
+      // action: 'android.',
+      // data: 'package:com.example'
+      // category: 'android.intent.category.LAUNCHER',
+      data: 'package:com.humber'
+    })
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to Phonat!
+        </Text>
+        <Button
+          onPress={() => {this.open()}}
+          title="SOS"
+          color="#FF3300"
+          accessibilityLabel="Open"
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});

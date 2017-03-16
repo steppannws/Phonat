@@ -24,15 +24,15 @@ var styles = EStyleSheet.create({
     	alignItems: 'center',
 	    paddingLeft: 40,
 	    paddingRight: 40,
-	    paddingTop: 10, 
-	    paddingBottom: 10, 
-	    borderWidth: 2,
-    	borderColor: '#febf2f',
+	    paddingTop: 5, 
+	    paddingBottom: 5, 
+	    borderWidth: 1.5,
+    	borderColor: '#ffffff',
 	},
 	title: {
-		color: '#ffbf2e',
+		color: '#ffffff',
 		fontSize: '$textM',
-		fontWeight: '800',
+		fontWeight: 'bold',
 		textAlign:'center',
 	}
 });

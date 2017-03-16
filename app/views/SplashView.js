@@ -34,6 +34,7 @@ class SplashView extends Component {
 
   componentDidMount() {    
     setTimeout(() => {Actions.welcome()}, 3000);
+    // setTimeout(() => {Actions.home()}, 3000);
   }
 
   componentWillUnmount() {

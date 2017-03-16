@@ -29,14 +29,14 @@ var styles = EStyleSheet.create({
 		// height: 65,
 	    paddingLeft:40,
 	    paddingRight:40,
-	    paddingTop: 10, 
-	    paddingBottom: 10, 
-	    backgroundColor: '#000000',
+	    paddingTop: 15, 
+	    paddingBottom: 15, 
+	    backgroundColor: '#FFFFFF',
 	},
 	title: {
-		color: '#ffbf2e',
-		fontSize: '$textM',
-		fontWeight: '100',
+		color: '#000000',
+		fontSize: '$textXL',
+		fontWeight: '800',
 		textAlign:'center',
 	}
 });

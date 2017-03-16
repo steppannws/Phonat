@@ -67,7 +67,6 @@ module.exports =  {
 			title,
 			msg,
 			[
-				// {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
 				{text: okTitle, onPress: () => okAction()},
 				{text: noTitle, onPress: () => noAction()},
 			]

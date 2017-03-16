@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { AppRegistry, AsyncStorage } from 'react-native';
-// import Storage from 'react-native-storage';
 import Phonat from './app/Phonat';
+// import Storage from 'react-native-storage';
+// import setup from './app/setup';
 // import User from './app/user/User';
 // import './app/ReactotronConfig'
 
